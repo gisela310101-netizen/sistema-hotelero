@@ -8,6 +8,8 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 COPY . .
 
+RUN cp .env.example .env
+
 RUN composer install --no-dev --optimize-autoloader
 RUN php artisan key:generate
 RUN php artisan config:cache
