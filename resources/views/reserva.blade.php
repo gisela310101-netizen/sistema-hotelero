@@ -190,7 +190,7 @@
                 </div>
                 <button type="submit" class="btn-submit">Enviar reserva</button>
             </form>
-            <a href="{{ route('hoteles.index') }}" class="btn-volver">← Volver a hoteles</a>
+           
 
         </div>
     </div>
