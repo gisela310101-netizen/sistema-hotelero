@@ -9,9 +9,12 @@ WORKDIR /app
 COPY . .
 
 RUN cp .env.example .env
-
 RUN composer install --no-dev --optimize-autoloader
 RUN php artisan key:generate
+
+RUN touch /app/database/database.sqlite
+RUN php artisan migrate --force
+
 RUN php artisan config:cache
 
 EXPOSE 10000
