@@ -8,6 +8,9 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 COPY . .
 
+# Crea .env si no existe
+RUN cp .env.example .env
+
 RUN composer install --no-dev --optimize-autoloader
 RUN php artisan key:generate
 RUN touch /app/database/database.sqlite
